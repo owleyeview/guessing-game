@@ -11,7 +11,7 @@ public class GuessingGame {
    public static void main(String[] args) {
       
       // Sets the range the program will populate a number from
-      final int MAX = 100;
+      final int MAX = 1000;
       
       Random r = new Random();
       Scanner s = new Scanner(System.in);
