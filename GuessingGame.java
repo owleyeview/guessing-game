@@ -1,5 +1,5 @@
 // Rashaan Lightpool
-// 9/21/2022
+// 9/27/2022
 // CS 145
 // This program asks the user to guess a random number
 
@@ -58,11 +58,11 @@ public class GuessingGame {
             try {
                System.out.print("Your guess? ");
                guess = s.nextInt();
-               properGuess = true;
+               properGuess = true;  //indicates that an integer was found
             }
             catch (InputMismatchException e) {
                System.out.println("Please enter an integer");
-               s.nextLine();
+               s.nextLine();  //reset the scanner  
             }
          } while (properGuess == false);
          numOfTries++;
