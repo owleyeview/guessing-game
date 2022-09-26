@@ -44,7 +44,7 @@ You are not allowed to use the break statement or to have a return statement in 
 
 Use whitespace and indentation properly. Limit lines to 100 characters. Give meaningful names to methods and variables, and follow Java's naming standards. Localize variables whenever possible. Include a comment at the beginning of your program with basic description information and a comment at the start of each method. Some students try to achieve repetition without properly using while loops, by writing a method that calls itself; this is not appropriate on this assignment and will result in a deduction in points
 
-Your program should be stored in a file called Guess.java.
+Your program should be stored in a file called GuessingGame.java.
 
 Log of execution:
 
