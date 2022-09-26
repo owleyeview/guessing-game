@@ -12,8 +12,7 @@ public class GuessingGame {
       
       // Sets the range the program will populate a number from
       final int MAX = 100;
-      
-      Random r = new Random();
+
       Scanner s = new Scanner(System.in);
       int numGames = 0;
       int totalGuesses = 0;
@@ -47,35 +46,39 @@ public class GuessingGame {
    
    // Plays one game with the user and returns the number of guesses it took
    public static int game(int MAX) {
-      try {
-         Random r = new Random();
-         Scanner s = new Scanner(System.in);
-         int numToGuess = r.nextInt(MAX) + 1;
-         System.out.println("I'm thinking of a number between 1 and " + MAX + "...");
-         int guess = 0;
-         int numOfTries = 0;
-         while (guess != numToGuess) {
-            System.out.print("Your guess? ");
-            guess = s.nextInt();
-            numOfTries++;
-            if (guess < numToGuess) {
-               System.out.println("It's higher.");
-            } else if (guess > numToGuess) {
-               System.out.println("It's lower.");
+      Random r = new Random();
+      Scanner s = new Scanner(System.in);
+      int numToGuess = r.nextInt(MAX) + 1;
+      System.out.println("I'm thinking of a number between 1 and " + MAX + "...");
+      int guess = 0;
+      int numOfTries = 0;
+      while (guess != numToGuess) {
+         boolean properGuess = false;
+         do {
+            try {
+               System.out.print("Your guess? ");
+               guess = s.nextInt();
+               properGuess = true;
+            }
+            catch (InputMismatchException e) {
+               System.out.println("Please enter an integer");
+               s.nextLine();
+            }
+         } while (properGuess == false);
+         numOfTries++;
+         if (guess < numToGuess) {
+            System.out.println("It's higher.");
+         } else if (guess > numToGuess) {
+            System.out.println("It's lower.");
+         } else {
+            if (numOfTries > 1) {
+               System.out.println("You got it right in " + numOfTries + " guesses");
             } else {
-               if (numOfTries > 1) {
-                  System.out.println("You got it right in " + numOfTries + " guesses");
-               } else {
-                  System.out.println("You got it right in 1 guess");
-               }
+               System.out.println("You got it right in 1 guess");
             }
          }
-         return numOfTries;
-      } catch (Exception e) {
-            System.out.println("Sorry, enter an integer next time.");
-            System.exit(0);
       }
-      return 0;
+      return numOfTries;
    }
    
    // Given the number of games, total guesses and best game score
